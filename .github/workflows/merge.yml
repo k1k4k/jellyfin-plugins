@@ -1,0 +1,40 @@
+name: Merge manifests
+
+# Reconstruit manifest.json (Jellyfin 12) et manifest-10.11.json (Jellyfin 10.11) à partir des
+# manifestes publiés par chaque plugin listé dans sources.json. Toutes les heures, à la main,
+# ou tout de suite quand le workflow Release d'un plugin envoie l'événement "plugin-released".
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+  repository_dispatch:
+    types: [plugin-released]
+  push:
+    branches: [main]
+    paths: ["sources.json", "scripts/merge_manifests.py", ".github/workflows/merge.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: merge-manifests
+  cancel-in-progress: false
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Merge
+        run: python3 scripts/merge_manifests.py build --sources sources.json
+
+      - name: Commit
+        run: |
+          git add manifest.json manifest-10.11.json
+          if git diff --cached --quiet; then echo "rien de nouveau"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "manifests: ${{ github.event.client_payload.repo || 'mise à jour' }} ${{ github.event.client_payload.tag }}"
+          git push origin HEAD:main
