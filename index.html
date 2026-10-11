@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>k1k4k Jellyfin plugins</title>
+<meta name="description" content="Jellyfin plugin repository for all k1k4k plugins.">
+<style>
+  :root { --bg: #0b0c0e; --card: #16181c; --text: #e8e8e8; --muted: #9aa0a6; --accent: #00a4dc; --border: #2a2d33; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 48px 16px 64px; }
+  h1 { font-size: 1.9em; margin: 0 0 .2em; }
+  h1 span { color: var(--accent); }
+  h2 { font-size: 1.15em; margin: 2.2em 0 .8em; }
+  p { margin: .4em 0; }
+  .muted { color: var(--muted); }
+  .steps { color: var(--muted); font-size: .95em; }
+  .url { display: flex; align-items: center; gap: 12px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin: 8px 0; }
+  .url b { flex: 0 0 5.5em; font-weight: 600; }
+  .url code { flex: 1 1 auto; min-width: 0; overflow-wrap: anywhere; font: .9em ui-monospace, Consolas, monospace; color: #fff; }
+  .url button { flex: 0 0 auto; background: var(--accent); color: #fff; border: 0; border-radius: 6px; padding: 6px 12px; font: inherit; font-size: .9em; cursor: pointer; }
+  .url button:hover { filter: brightness(1.1); }
+  .plugin { display: flex; gap: 16px; align-items: center; background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 12px; margin: 10px 0; text-decoration: none; color: inherit; }
+  .plugin:hover { border-color: var(--accent); }
+  .plugin img { width: 160px; aspect-ratio: 16/9; border-radius: 6px; flex: 0 0 auto; background: #000; }
+  .plugin h3 { margin: 0 0 .2em; font-size: 1.05em; }
+  .plugin p { color: var(--muted); font-size: .93em; }
+  footer { margin-top: 3em; color: var(--muted); font-size: .85em; }
+  a { color: var(--accent); }
+  @media (max-width: 560px) {
+    .url { flex-wrap: wrap; } .url b { flex-basis: 100%; }
+    .plugin { flex-direction: column; align-items: stretch; } .plugin img { width: 100%; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>k1k4k <span>Jellyfin plugins</span></h1>
+  <p class="muted">One plugin repository for all k1k4k plugins. Add it once to Jellyfin, and every plugin, with its updates, shows up in the catalog.<br>
+  <i>Un seul dépôt pour tous les plugins k1k4k : ajoutez-le une fois, chaque plugin et ses mises à jour apparaissent dans le catalogue.</i></p>
+
+  <h2>Repository URL / Adresse du dépôt</h2>
+  <p class="steps">Dashboard → Plugins → Manage Repositories → <b>+</b> &nbsp;·&nbsp; <i>Tableau de bord → Extensions → Gérer les dépôts → <b>+</b></i></p>
+  <div class="url"><b>Jellyfin 12</b><code id="u12">https://k1k4k.github.io/jellyfin-plugins/manifest.json</code><button type="button" data-copy="u12">Copy</button></div>
+  <div class="url"><b>Jellyfin 10.11</b><code id="u10">https://k1k4k.github.io/jellyfin-plugins/manifest-10.11.json</code><button type="button" data-copy="u10">Copy</button></div>
+
+  <h2>Plugins</h2>
+  <a class="plugin" href="https://github.com/k1k4k/jellyfin-background-play">
+    <img src="https://raw.githubusercontent.com/k1k4k/jellyfin-background-play/main/icon.png" alt="">
+    <div><h3>Jellyfin Background Play</h3>
+    <p>Leaving the web video player no longer stops the video: it keeps playing with the music mini player bar.<br><i>Quitter le lecteur ne coupe plus la vidéo : elle continue en fond avec la mini barre de la musique.</i></p></div>
+  </a>
+  <a class="plugin" href="https://github.com/k1k4k/jellyfin-player-queue">
+    <img src="https://raw.githubusercontent.com/k1k4k/jellyfin-player-queue/main/icon.png" alt="">
+    <div><h3>Jellyfin Player Queue</h3>
+    <p>The play queue the web player was missing: seasons, reorder, add, remove, without leaving the video.<br><i>La file de lecture qui manquait au lecteur web : saisons, réordonner, ajouter, retirer, sans quitter la vidéo.</i></p></div>
+  </a>
+
+  <footer>Source: <a href="https://github.com/k1k4k/jellyfin-plugins">github.com/k1k4k/jellyfin-plugins</a> · MIT</footer>
+</main>
+<script>
+  document.querySelectorAll('[data-copy]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = document.getElementById(btn.getAttribute('data-copy')).textContent;
+      var done = function () { btn.textContent = 'Copied ✓'; setTimeout(function () { btn.textContent = 'Copy'; }, 1500); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, function () {});
+    });
+  });
+</script>
+</body>
+</html>
