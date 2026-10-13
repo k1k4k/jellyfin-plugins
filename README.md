@@ -34,7 +34,7 @@ Each plugin publishes its own manifests (`manifest.json`, `manifest-10.11.json`)
 
 Each plugin entry always comes from its own repository (matched by GUID). An unreachable repository doesn't drop its plugin: the previous entry is kept.
 
-Adding a plugin: add `{ "guid": "…", "repo": "k1k4k/…" }` to `sources.json`, and a card to `index.html` (the page served at https://k1k4k.github.io/jellyfin-plugins/).
+Adding a plugin: add `{ "guid": "…", "repo": "k1k4k/…" }` to `sources.json`, a row to the table above, and a card to `index.html` (the page served at https://k1k4k.github.io/jellyfin-plugins/). A plugin without any published version is skipped until its first release.
 
 ```bash
 python scripts/merge_manifests.py build --sources sources.json
