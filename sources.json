@@ -1,4 +1,5 @@
 [
   { "guid": "03de372b-6a0e-4c93-a525-05e094642af6", "repo": "k1k4k/jellyfin-background-play" },
-  { "guid": "ae203062-4b00-4c07-a7f6-83e69982d951", "repo": "k1k4k/jellyfin-player-queue" }
+  { "guid": "ae203062-4b00-4c07-a7f6-83e69982d951", "repo": "k1k4k/jellyfin-player-queue" },
+  { "guid": "541fb644-193a-4692-b8a4-2593356153a7", "repo": "k1k4k/jellyfin-true-music-library" }
 ]
