@@ -22,6 +22,7 @@ Then / puis **Plugins → Available / Disponible**.
 | [**Jellyfin Background Play**](https://github.com/k1k4k/jellyfin-background-play) | Leaving the web video player no longer stops the video: it keeps playing with the music mini player bar. / Quitter le lecteur ne coupe plus la vidéo : elle continue en fond avec la mini barre de la musique. |
 | [**Jellyfin Player Queue**](https://github.com/k1k4k/jellyfin-player-queue) | The play queue the web player was missing: seasons, reorder, add, remove, without leaving the video. / La file de lecture qui manquait au lecteur web : saisons, réordonner, ajouter, retirer, sans quitter la vidéo. |
 | [**Jellyfin True Music Library**](https://github.com/k1k4k/jellyfin-true-music-library) | One "Artists" tab with only the main artists of albums, singles and EPs; guests stay on their tracks. / Un seul onglet « Artistes » avec seulement les artistes principaux ; les invités restent sur leurs pistes. |
+| [**Jellyfin Pro Downloader**](https://github.com/k1k4k/jellyfin-pro-downloader) | Download a whole series, album or collection without hundreds of downloads at once: pick what you want, then a folder, a queue or ZIP files. / Télécharger une série, un album ou une collection sans des centaines de téléchargements d'un coup : sélection, puis dossier, file d'attente ou ZIP. |
 
 Already using the Player Queue repository URL? It keeps working and lists the other plugins too.
 
